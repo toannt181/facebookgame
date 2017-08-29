@@ -45,22 +45,35 @@
 
 <script>
     $(document).ready(function () {
+        let token;
+
         FB.getLoginStatus(function (response) {
             if (response.status === 'connected') {
                 console.log('Logged in.');
                 console.log(response);
+                token = response.accessToken;
             }
             else {
                 FB.login();
             }
         });
+
+        function lioGet() {
+            FB.api(
+                "/" + token,
+                function (response) {
+                    if (response && !response.error) {
+                        console.log('RECEIVE', response);
+                    }
+                }
+            );
+        }
     });
-    function myFacebookLogin() {
-        FB.login(function(){}, {scope: 'publish_actions'});
-    }
+
+
 </script>
 
-<button onclick="myFacebookLogin()">Login with Facebook</button>
+<button onclick="lioGet()">Login with Facebook</button>
 </body>
 </html>
 
