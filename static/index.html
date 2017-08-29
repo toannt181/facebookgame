@@ -30,14 +30,6 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-    FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
-            console.log('Logged in.');
-        }
-        else {
-            FB.login();
-        }
-    });
 
 </script>
 
@@ -47,6 +39,19 @@
 <div id="app-root"></div>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="dist/bundle.js"></script>
+
+<script>
+    $(function () {
+        FB.getLoginStatus(function(response) {
+            if (response.status === 'connected') {
+                console.log('Logged in.');
+            }
+            else {
+                FB.login();
+            }
+        });
+    });
+</script>
 </body>
 </html>
 
