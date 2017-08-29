@@ -29,6 +29,16 @@
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            console.log('Logged in.');
+        }
+        else {
+            FB.login();
+        }
+    });
+
 </script>
 
 <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with"
