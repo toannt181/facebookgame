@@ -61,13 +61,15 @@
                 function (response) {
                     if (response && !response.error) {
                         console.log('RECEIVE', response);
+                    } else {
+                        console.log('send api error');
                     }
                 }
             );
         }
 
         $('#get-info').click(function () {
-            console.log('clicked');
+            console.log(token);
             lioGet();
         });
 
