@@ -1,0 +1,31 @@
+#app-root {
+  $primary-color: #0e69d4;
+  font-family: 'Roboto', sans-serif;
+  color: #555;
+  font-size: 14px;
+
+  p {
+    margin-bottom: 8px;
+  }
+
+  .list-card {
+    display: flex;
+    flex-wrap: wrap;
+
+    .card {
+      flex: 0 0 25%;
+      margin: 8px;
+      cursor: pointer;
+      transition-duration: 0.2s;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        background-color: #fafafa;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+
+      }
+    }
+
+  }
+}
+
