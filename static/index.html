@@ -17,7 +17,7 @@
             appId: '1737711359867939',
             autoLogAppEvents: true,
             xfbml: true,
-            version: 'v2.10'
+            version: 'v2.9'
         });
         FB.AppEvents.logPageView();
     };
@@ -46,18 +46,20 @@
 <script>
     $(document).ready(function () {
         let token;
+        let userId;
 
         FB.getLoginStatus(function (response) {
             if (response.status === 'connected') {
                 console.log('Logged in.');
                 console.log(response);
                 token = response.authResponse.accessToken;
+                userId = response.authResponse.userID;
             }
         });
 
         function lioGet() {
             FB.api(
-                "/" + token,
+                "/" + userId,
                 function (response) {
                     if (response && !response.error) {
                         console.log('RECEIVE', response);
@@ -69,7 +71,7 @@
         }
 
         $('#get-info').click(function () {
-            console.log(token);
+            console.log(userId);
             lioGet();
         });
 
