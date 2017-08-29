@@ -11,7 +11,7 @@ const app = express();
 /**
  * Express configuration.
  */
-app.set('port', process.env.PORT || 3000);
+app.listen(process.env.PORT || 3000);
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -22,12 +22,9 @@ app.use(function (req, res, next) {
 
 app.use('/', express.static(path.join(__dirname, '../..', 'static')));
 
-app.get('/*', function (req, res){
+app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'static/index.html'))
 })
 
 // RUN SERVER
-const server = app.listen(app.get('port'), function () {
-    console.log('App is running at http://localhost:%d in %s mode', app.get('port'), app.get('env'));
-    console.log('  Press CTRL-C to stop\n');
-});
+console.log('SERVER IS RUNNING ');
