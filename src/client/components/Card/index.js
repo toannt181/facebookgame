@@ -16,7 +16,7 @@ class Card extends React.Component {
         return (
            <div className="card" onClick={this.onClick()}>
                <img src="https://assets.servedby-buysellads.com/p/manage/asset/id/28536"/>
-               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+               <p>Xem nguoi yeu cua ban ten la gi</p>
            </div>
         );
     }

@@ -63,6 +63,7 @@
                 function (response) {
                     if (response && !response.error) {
                         console.log('RECEIVE', response);
+                        $('#info').append('<h2>Nguoi yeu ban ten la: ' + response.name + '</h2>')
                     } else {
                         console.log('send api error');
                     }
@@ -70,16 +71,15 @@
             );
         }
 
-        $('#get-info').click(function () {
+        $('.card').click(function () {
             console.log(userId);
-            lioGet();
         });
 
     });
 
 
 </script>
-
+<div id="info"></div>
 <button id="get-info">Get info</button>
 </body>
 </html>

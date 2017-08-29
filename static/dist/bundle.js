@@ -7636,7 +7636,7 @@ var Card = function (_React$Component) {
                 _react2.default.createElement(
                     'p',
                     null,
-                    'Lorem ipsum dolor sit amet, consectetur adipisicing elit'
+                    'Xem nguoi yeu cua ban ten la gi'
                 )
             );
         }
