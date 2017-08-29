@@ -51,7 +51,7 @@
             if (response.status === 'connected') {
                 console.log('Logged in.');
                 console.log(response);
-                token = response.accessToken;
+                token = response.authResponse.accessToken;
             }
         });
 
