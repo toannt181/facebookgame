@@ -36,9 +36,6 @@
 
 </script>
 
-<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with"
-     data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
-
 <div id="app-root"></div>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="dist/bundle.js"></script>
@@ -54,6 +51,17 @@
                 console.log(response);
                 token = response.authResponse.accessToken;
                 userId = response.authResponse.userID;
+            }
+        });
+
+        FB.login(function(response) {
+            if (response.authResponse) {
+                console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', function(response) {
+                    console.log('Good to see you, ' + response.name + '.');
+                });
+            } else {
+                console.log('User cancelled login or did not fully authorize.');
             }
         });
 
@@ -73,15 +81,18 @@
 
         $('.card').click(function () {
             console.log(userId);
-            $('#info').html('<h2>Loading ...</h2>')
+            $('#info').html('<h2>Loading ...</h2>');
             lioGet();
         });
+
+        $('#login').click(FB.login);
 
     });
 
 
 </script>
 <div id="info"></div>
+<button id="login" class="btn btn-danger">LOGIN</button>
 </body>
 </html>
 
