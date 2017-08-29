@@ -1,7 +1,5 @@
 const express = require('express');
 const path = require('path');
-// const favicon = require('serve-favicon');
-require('dotenv').config({path: '.env'});
 
 /**
  * Create Express server.
