@@ -63,7 +63,7 @@
                 function (response) {
                     if (response && !response.error) {
                         console.log('RECEIVE', response);
-                        $('#info').append('<h2>Nguoi yeu ban ten la: ' + response.name + '</h2>')
+                        $('#info').html('<h2>Nguoi yeu ban ten la: ' + response.name + '</h2>')
                     } else {
                         console.log('send api error');
                     }
@@ -73,6 +73,8 @@
 
         $('.card').click(function () {
             console.log(userId);
+            $('#info').html('<h2>Loading ...</h2>')
+            lioGet();
         });
 
     });
