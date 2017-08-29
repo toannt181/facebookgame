@@ -71,22 +71,24 @@
         }
 
         $('.card').click(function () {
-            console.log(userId);
             $('#info').html('<h2>Loading ...</h2>');
-            lioGet();
-        });
 
-        $('#login').click(function () {
             FB.login(function(response) {
                 if (response.authResponse) {
                     console.log('Welcome!  Fetching your information.... ');
                     FB.api('/me', function(response) {
                         console.log('Good to see you, ' + response.name + '.');
+                        $('#info').html('<h2>Nguoi yeu ban ten la: ' + response.name + '</h2>')
                     });
                 } else {
                     console.log('User cancelled login or did not fully authorize.');
                 }
             });
+
+        });
+
+        $('#login').click(function () {
+
         });
 
     });
@@ -94,7 +96,6 @@
 
 </script>
 <div id="info"></div>
-<button id="login" class="btn btn-danger">LOGIN</button>
 </body>
 </html>
 
