@@ -22,12 +22,12 @@ app.use(function (req, res, next) {
 
 app.use('/', express.static(path.join(__dirname, '../..', 'static')));
 
-app.get('/*', function (req, res){
+app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'static/index.html'))
 })
 
 // RUN SERVER
-const server = app.listen(app.get('port'), function () {
+const server = app.listen(app.get('port'), () => {
     console.log('App is running at http://localhost:%d in %s mode', app.get('port'), app.get('env'));
     console.log('  Press CTRL-C to stop\n');
 });
