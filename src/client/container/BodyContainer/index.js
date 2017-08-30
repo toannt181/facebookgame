@@ -1,12 +1,22 @@
 import React from 'react';
-import Card from '../../components/Card';
+import ListCard from '../ListCard/';
+import {Route, Switch, Redirect} from 'react-router-dom';
+import GameContainer from "../GameContainer/index";
+
 
 class BodyContainer extends React.Component {
     render() {
         return (
-            <div className="list-card">
-                <Card></Card>
-            </div>
+            <Switch>
+                <Route exact path="/" component={ListCard}/>
+                <Switch>
+                    <Redirect exact from='/game' to='/'/>
+                    <Route path="/game/:number"
+                           render={props =>
+                               <GameContainer {...props}/>
+                           }/>
+                </Switch>
+            </Switch>
         );
     }
 }

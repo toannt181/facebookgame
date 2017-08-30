@@ -1,11 +1,33 @@
-#app-root {
+body {
   $primary-color: #0e69d4;
   font-family: 'Roboto', sans-serif;
   color: #555;
   font-size: 14px;
+  background: #eaeaea;
 
   p {
     margin-bottom: 8px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+}
+
+#app-root {
+
+  nav {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    //height: 48px;
+
+    img {
+      height: 48px;
+      width: auto;
+    }
   }
 
   .list-card {
@@ -24,8 +46,29 @@
         box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
 
       }
+
+      p {
+        padding: 4px 8px;
+      }
     }
 
+  }
+
+  .board-game {
+    background: white;
+    margin: 16px;
+    padding: 16px;
+
+    .image-game {
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      background: #999;
+      color: white;
+      padding: 8px 0;
+    }
   }
 }
 

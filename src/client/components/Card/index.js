@@ -1,29 +1,26 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 class Card extends React.Component {
 
     constructor(props) {
         super(props);
-        this.onClick = this.onClick.bind(this);
     }
 
-    onClick() {
-
+    onClick(i) {
+        console.log(i);
     }
 
     render() {
         return (
-           <div className="card" onClick={this.onClick()}>
-               <img src="https://assets.servedby-buysellads.com/p/manage/asset/id/28536"/>
-               <p>Xem nguoi yeu cua ban ten la gi</p>
-           </div>
+            <Link to={'/game/' + this.props.id}>
+                <div className="card">
+                    <img src={this.props.image}/>
+                    <p>{this.props.title}</p>
+                </div>
+            </Link>
         );
     }
 }
 
-function mapToProps(state) {
-    return {};
-}
-
-export default connect(mapToProps)(Card);
+export default Card;

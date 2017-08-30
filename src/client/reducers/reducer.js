@@ -1,11 +1,10 @@
 import {combineReducers} from 'redux';
 
-import customer from './topic';
-import topic from './topic';
+import ListGames from './listgames';
+
 
 let reducer = combineReducers({
-    customer,
-    topic,
+    ListGames
 });
 
 export default reducer;

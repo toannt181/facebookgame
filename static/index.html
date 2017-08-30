@@ -32,69 +32,66 @@
         js.src = "//connect.facebook.net/en_US/sdk.js";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-
-
 </script>
 
 <div id="app-root"></div>
 <script src="js/jquery-3.2.1.min.js"></script>
-<script src="dist/bundle.js"></script>
+<script src="/dist/bundle.js"></script>
 
-<script>
-    $(document).ready(function () {
-        let token;
-        let userId;
+<!--<script>-->
+<!--$(document).ready(function () {-->
+<!--let token;-->
+<!--let userId;-->
 
-        FB.getLoginStatus(function (response) {
-            if (response.status === 'connected') {
-                console.log('Logged in.');
-                console.log(response);
-                token = response.authResponse.accessToken;
-                userId = response.authResponse.userID;
-            }
-        });
-
-
-
-        function lioGet() {
-            FB.api(
-                "/" + userId,
-                function (response) {
-                    if (response && !response.error) {
-                        console.log('RECEIVE', response);
-                        $('#info').html('<h2>Nguoi yeu ban ten la: ' + response.name + '</h2>')
-                    } else {
-                        console.log('send api error');
-                    }
-                }
-            );
-        }
-
-        $('.card').click(function () {
-            $('#info').html('<h2>Loading ...</h2>');
-
-            FB.login(function(response) {
-                if (response.authResponse) {
-                    console.log('Welcome!  Fetching your information.... ');
-                    FB.api('/me', function(response) {
-                        console.log('Good to see you, ' + response.name + '.');
-                        $('#info').html('<h2>Nguoi yeu ban ten la: ' + response.name + '</h2>')
-                    });
-                } else {
-                    console.log('User cancelled login or did not fully authorize.');
-                }
-            });
-
-        });
-
-        $('#login').click(function () {
-
-        });
-
-    });
+<!--FB.getLoginStatus(function (response) {-->
+<!--if (response.status === 'connected') {-->
+<!--console.log('Logged in.');-->
+<!--console.log(response);-->
+<!--token = response.authResponse.accessToken;-->
+<!--userId = response.authResponse.userID;-->
+<!--}-->
+<!--});-->
 
 
-</script>
+<!--function lioGet() {-->
+<!--FB.api(-->
+<!--"/" + userId,-->
+<!--function (response) {-->
+<!--if (response && !response.error) {-->
+<!--console.log('RECEIVE', response);-->
+<!--$('#info').html('<h2>Nguoi yeu ban ten la: ' + response.name + '</h2>')-->
+<!--} else {-->
+<!--console.log('send api error');-->
+<!--}-->
+<!--}-->
+<!--);-->
+<!--}-->
+
+<!--$('.card').click(function () {-->
+<!--$('#info').html('<h2>Loading ...</h2>');-->
+
+<!--FB.login(function(response) {-->
+<!--if (response.authResponse) {-->
+<!--console.log('Welcome!  Fetching your information.... ');-->
+<!--FB.api('/me', function(response) {-->
+<!--console.log('Good to see you, ' + response.name + '.');-->
+<!--$('#info').html('<h2>Nguoi yeu ban ten la: ' + response.name + '</h2>')-->
+<!--});-->
+<!--} else {-->
+<!--console.log('User cancelled login or did not fully authorize.');-->
+<!--}-->
+<!--});-->
+
+<!--});-->
+
+<!--$('#login').click(function () {-->
+
+<!--});-->
+
+<!--});-->
+
+
+<!--</script>-->
 <div id="info"></div>
 </body>
 </html>

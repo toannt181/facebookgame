@@ -11,7 +11,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <NavBar></NavBar>
+                <NavBar/>
                 <BodyContainer/>
             </div>
         );
