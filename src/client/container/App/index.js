@@ -10,10 +10,6 @@ require('../../css/cssGroup');
 class App extends React.Component {
     constructor(props) {
         super(props);
-
-        FB.api('/113124472034820', function(response) {
-            console.log('Tata', response);
-        });
     }
 
     render() {
